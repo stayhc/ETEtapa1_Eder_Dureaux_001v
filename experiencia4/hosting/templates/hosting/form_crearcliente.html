@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        {%load static%}
+        <title>Ground Zero</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <link href="{%static 'css/bootstrap.min.css'%}" type="text/css" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@100;200;300;400;500;600;700;800;900&family=DM+Sans:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+        <link rel="stylesheet" href="{%static 'css/estilos.css'%}">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
+		<link href="{%static 'css/style.min.css'%}" rel="stylesheet" />
+    </head>
+<body>
+    <nav class="navbar navbar-expand-sm navbar-light bg-light fixed-top container-fluid">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#opciones">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        
+        <!-- logo -->
+        <a class="navbar-brand" href="{%url 'index'%}">
+          <img src="{%static 'img/logo_groundzero.jpg'%}" alt="" class="img-fluid" height="100px" width="200">
+        </a>
+        
+        <!-- enlaces -->
+        <div class="collapse navbar-collapse justify-content-center" id="opciones">   
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link" href="{%url 'index'%}">Inicio</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{%url 'clientes'%}">Clientes</a>
+            </li>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <li class="nav-item">
+              <a class="nav-link" href="{%url 'crearClientes'%}">Crear clientes</a>
+            </li>
+          </ul>
+        </div>
+        <i class="fas fa-adjust"></i>
+        <button onclick="myFunction()">Dark mode</button>
+    </nav>
+    <br><br>
+    <div class="container"><br><br>
+        <div class="row justify-content-center">
+            <h1>Creando Proveedores</h1>
+        </div>
+        <div class="row justify-content-center">
+            <form method="POST" action="#" id="formulario">
+                {%csrf_token%}
+                <div class="row">
+                    {{cliente.numeroId.label}}
+                    {{cliente.numeroId}}
+                </div>
+                
+                <div class="row">
+                    {{cliente.nombreCompleto.label}}
+                    {{cliente.nombreCompleto}}
+                </div>
+
+                <div class="row">
+                    {{cliente.telefono.label}}
+                    {{cliente.telefono}}
+                </div>
+
+                <div class="row">
+                    {{cliente.direccion.label}}
+                    {{cliente.direccion}}
+                </div>
+
+                <div class="row">
+                    {{cliente.email.label}}
+                    {{cliente.email}}
+                </div>
+
+                <div class="row">
+                    {{cliente.pais.label}}
+                    {{cliente.pais}}
+                </div>
+
+                <div class="row">
+                    {{cliente.contrasena.label}}
+                    {{cliente.contrasena}}
+                </div>
+
+                <div class="row">
+                    {{cliente.moneda.label}}
+                    {{cliente.moneda}}
+                </div>
+                <br>
+
+                <div class="row">
+                    <input type="submit" class="btn btn-danger" id="enviar" value="Enviar">
+                    <input type="reset" class="btn btn-primary" id="limpiar" value="Limpiar">
+                    <br><br><br>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+<footer class="pt-75 pb-65 text-center footer_1 bg-dark justify-content-center">
+    <div class="container px-xl-0">
+        <div class="row justify-content-between align-items-center lh-40 links">
+            <div class="col-lg-0 col-sm-0 text-sm-right text-lg-left order-1 order-lg-0 aos-animate">
+
+            </div>
+            <div class="mb-10 mb-lg-0 col-lg-auto order-0">
+            </div>
+            <div class="col-lg-4 col-sm-6 text-sm-left text-lg-right order-2 order-lg-0 aos-animate">
+                <a href="https://twitter.com" class="mx-15 link color-bg-light">
+                    <i class="fab fa-twitter">
+                    </i>
+                </a>
+                <a href="https://facebook.com" class="mx-15 link color-bg-light">
+                    <i class="fab fa-facebook-square">
+                    </i>
+                </a>
+            </div>
+        </div>
+        <br><br>
+        <div class="row justify-content-center">
+            <div class="mt-10 col-xl-4 col-lg-5 col-md-6 col-sm-8 aos-animate">
+                <div class="text-adaptive color-transparent-white">
+                    Ground Zero @ Derechos reservados 2021
+                    <br>Eder Dureaux
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+<script>
+    function myFunction() {
+       var element = document.body;
+       element.classList.toggle("dark-mode");
+    }
+</script>
+<script src="{%static 'js/particles.js'%}"></script>
+<script src="{%static 'js/app.js'%}"></script>
+</html>
